@@ -29,3 +29,5 @@ Route::middleware('auth:sanctum')->group(function () {
 
     Route::apiResource('posts.comments', CommentController::class)->except(['index', 'show']);
 });
+
+Route::get('/posts/{post}/comments', [CommentController::class, 'index']);

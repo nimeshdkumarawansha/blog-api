@@ -8,6 +8,12 @@ use App\Models\Post;
 
 class CommentController extends Controller
 {
+    public function index(Post $post)
+    {
+        $comments = $post->comments()->with('user')->get();
+
+        return response()->json($comments);
+    }
     public function store(Request $request, Post $post)
     {
         $request->validate(['body' => 'required']);
