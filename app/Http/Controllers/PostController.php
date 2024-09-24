@@ -17,6 +17,8 @@ class PostController extends Controller
 
         if ($request->has('status')) {
             $query->where('status', $request->status);
+        }else{
+            $query->where('status', 'published');
         }
 
         return $query->paginate(10);
