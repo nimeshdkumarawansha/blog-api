@@ -114,7 +114,3 @@ To run the tests, use the following command:
 ```bash
 php artisan test
 ```
-
-## API Documentation
-
-You can use Postman or Swagger to document and test the API endpoints. Postman is recommended for manual testing, while Swagger can be used to generate documentation dynamically.
