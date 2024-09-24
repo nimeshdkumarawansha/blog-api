@@ -27,8 +27,9 @@ class CommentController extends Controller
         return response()->json($comment, 201);
     }
 
-    public function update(Request $request, Comment $comment)
+    public function update(Request $request, $postId, $commentId)
     {
+        $comment = Comment::where('post_id', $postId)->findOrFail($commentId);
         $this->authorize('update', $comment);
 
         $comment->update($request->all());
@@ -36,15 +37,15 @@ class CommentController extends Controller
         return response()->json($comment);
     }
 
+
     public function destroy($postId, $commentId)
     {
         $comment = Comment::where('post_id', $postId)->findOrFail($commentId);
-    
+
         $this->authorize('delete', $comment);
-    
+
         $comment->delete();
-    
+
         return response()->json(null, 204);
     }
 }
-    

@@ -15,10 +15,9 @@ class PostFactory extends Factory
     {
         return [
             'title' => $this->faker->sentence,
-            'body' => $this->faker->paragraph,
+            'body' => $this->faker->paragraphs(3, true),
             'status' => $this->faker->randomElement(['published', 'draft']),
-            'user_id' => User::factory(), // assuming you want to attach a user
+            'user_id' => User::factory(),
         ];
     }
 }
-

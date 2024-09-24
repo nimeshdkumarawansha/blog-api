@@ -21,7 +21,7 @@ class PostController extends Controller
             $query->where('status', 'published');
         }
 
-        return $query->paginate(10);
+        return response()->json($query->paginate(10));
     }
 
     public function store(Request $request)
